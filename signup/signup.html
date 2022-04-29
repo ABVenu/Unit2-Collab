@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up</title>
+    
+</head>
+<style>
+    h2{
+        font-size: 40px;
+        color: white;
+    }
+  #signup{
+      width: 500px;
+      height: 600px;
+      margin: auto;
+      margin-top: 100px;
+      text-align: center;
+      padding: 30px;
+      background-color: #4ec8af;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+  input{
+      width: 60%;
+      padding: 30px;
+      border: 0;
+      margin-bottom: 20px;
+  }
+  #submit ,#return{
+      width: 72%;
+      font-size: 20px;
+      color: #e4ffff;
+      border: 0;
+      background: #24a589;
+  }
+
+</style>
+<body>
+ 
+
+<div id="signup">
+    <div>
+        <h2>-Visitor-</h2>
+        <form id="forms">
+            <input type="text"  id="name" placeholder="Full name">
+            <input type="email" id="email" placeholder="Email">
+            <input type="text" id="orignation" placeholder="Orgnization">
+            <input type="submit" id="submit" value="SIGN UP" >
+            <input type="button" id="return" value="RETURN" >
+    
+        </form>
+    </div>
+   
+</div>
+
+</body>
+</html>
+
+    <script>
+            let forms = document.querySelector("#forms");
+            forms.addEventListener("submit",storedata);
+
+            function storedata()
+        {
+            event.preventDefault();
+            let arr = JSON.parse(localStorage.getItem("signupData"))||[];
+            let obj = 
+            {   
+                name :forms.name.value,
+                email : forms.email.value,
+                orignation : forms.orignation.value
+            };
+
+            arr.push(obj);
+            localStorage.setItem("signupData",JSON.stringify(arr));
+
+        //  On submit if you have to redirect to some page then type here
+        
+        //  window.location.href = "xyz.html";  
+  
+        }
+
+    
+
+          
+
+</script>
+</body>
+</html>
