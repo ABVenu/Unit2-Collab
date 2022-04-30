@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mens Page</title>
+    <style>
+      h1{
+        text-align: center;
+      }
+      #container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto;
+        gap: 40px;
+      
+      }
+      #box{
+        height: auto;
+        width: 50%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        margin: auto;
+        border-radius: 10px;
+      }
+
+     #product_image{
+       height: 300px;
+       width: 100%;
+       border-top-left-radius: 10px;
+       border-top-right-radius: 10px;
+       
+     }
+     #price{
+       display: flex;
+       height: 60px;
+       width: 200px;
+       justify-content: space-evenly;
+       margin-top: -20px;
+     }
+     #product_name{
+       margin-left: 20px;
+       color: rgb(39, 39, 38);
+     }
+     #product_discription{
+       margin-left: 20px;
+       margin-top: -15px;
+       color: gray;
+     }
+     #strike_price{
+       text-decoration: line-through;
+       color: gray;
+     }
+
+     #offer_price{
+       color: green;
+     }
+    </style>
+</head>
+<body>
+         <h1>MENS PAGE</h1>
+          <div id="container"></div>
+</body>
+</html>
+
+<script>
+         var data =[
+           {
+           Image: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/h/e/heutrap-ht17mkgraylw00288_1_bf5162c0.jpg?rnd=20200526195200",
+           name: "Huetrap",
+           discription: "Mens Printed Round Neck Yellow T-Shirt",
+           price:"₹600",
+           strikedoffprice:"₹1,499",
+           offer:"60% Off",
+            },
+
+           {
+              Image: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-960,/pub/media/catalog/product/h/u/huetrap-ht18mkgraltb01299_1_c8e911d5.jpg?rnd=20200526195200",
+           name: "Chaddas",
+           discription: "Mens Printed Round Neck blue T-Shirt",
+           price:"₹700",
+           strikedoffprice:"₹1,699",
+           offer:"65% Off",
+            }]
+
+            data.forEach(function(elem){
+         var box = document.createElement("div");
+        box.setAttribute("id","box");
+
+        var product_image = document.createElement("img");
+        product_image.setAttribute("src", elem.Image)
+        product_image.setAttribute("id","product_image")
+
+        var product_name = document.createElement("h1");
+        product_name.innerText = elem.name;
+        product_name.setAttribute("id","product_name")
+
+        var product_discription= document.createElement("p");
+        product_discription.innerText =elem.discription;
+        product_discription.setAttribute("id","product_discription");
+
+        var price = document.createElement("div");
+        price.setAttribute("id","price");
+
+        var product_price = document.createElement("p");
+        product_price.innerText = elem.price;
+        product_price.setAttribute("id","product_price");
+
+        var strike_price = document.createElement("p");
+        strike_price.innerText = elem.strikedoffprice;
+        strike_price.setAttribute("id","strike_price")
+
+        var offer_price = document.createElement("p");
+        offer_price.innerText= elem.offer;
+        offer_price.setAttribute("id","offer_price")
+
+        price.append(product_price,strike_price,offer_price)
+
+        box.append(product_image,product_name,product_discription, price);
+        console.log(box)
+
+        document.querySelector("#container").append(box)
+
+            });
+  
+</script>
